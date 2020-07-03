@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //start app 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 app.get('/', (req, res) => {
     fs.readFile(__dirname + '/index.html', 'utf8', (err, text) => {
