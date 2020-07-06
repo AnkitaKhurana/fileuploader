@@ -48,10 +48,9 @@
     </tr>
   </thead>
   <tbody>
-      {{files}}
     {{#each files}}
      <tr>
-      <th scope="row">1</th>
+      <th scope="row"> {{@index}}</th>
       <td>{{this.Key}}</td>
       <td>{{this.Size}}</td>
       <td>{{this.LastModified}}</td>

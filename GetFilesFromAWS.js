@@ -5,7 +5,7 @@ var getFiles = ()=>{
     return new Promise((resolve,reject)=>{
         try{
             var getParams = {
-                Bucket: 'ankita-nagp-bucket'
+                Bucket: process.env.BUCKET_NAME
             };
             s3.listObjects(getParams, function(err, data) {
                 if (err){

@@ -46,7 +46,7 @@ app.post('/upload', async (req, res) => {
             let avatar = req.files.avatar;
 
             let BUCKET_CONFIG = {
-                Bucket: process.env.BUCKET_NAME || 'ankita-nagp-bucket',
+                Bucket: process.env.BUCKET_NAME,
                 Key: 'files/' + Date.now() + '-' + avatar.name,
                 Body: avatar.data
             }
