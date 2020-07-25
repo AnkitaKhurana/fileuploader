@@ -4,7 +4,7 @@
   "description": "This is a node project for uploading text files and computing the number of letters",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "Ankita Khurana",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
     "hbs": "^4.1.1",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.19",
+    "mocha": "^8.0.1"
   }
 }
