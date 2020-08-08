@@ -12,12 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm test'
+                bat 'npm test'
             }
         }
         stage ('Sonar Quality'){
@@ -26,7 +26,7 @@ pipeline {
            }
             steps {
                 withSonarQubeEnv('sonarqube') {
-                sh "${scannerHome}/bin/sonar-scanner"
+                bat "${scannerHome}/bin/sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') 
                 {
