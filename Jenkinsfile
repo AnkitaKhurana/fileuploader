@@ -1,5 +1,4 @@
 pipeline {
-     jdk = tool name: 'JAVA_HOME'
      agent any
     // agent {
     //     docker {
@@ -9,7 +8,6 @@ pipeline {
     // }
     environment {
          CI = 'true'
-         JAVA_HOME = "${jdk}"
     }
     stages {
         stage('Build') {
@@ -24,6 +22,8 @@ pipeline {
         }
         stage ('Sonar Quality'){
            environment {
+                 jdk = tool name 'JAVA_HOME'
+                 JAVA_HOME = "${jdk}"
                  scannerHome = tool 'SonarQube Scanner'
            }
             steps {
