@@ -1,4 +1,5 @@
 pipeline {
+     jdk = tool name: 'JAVA_HOME'
      agent any
     // agent {
     //     docker {
@@ -8,6 +9,7 @@ pipeline {
     // }
     environment {
          CI = 'true'
+         JAVA_HOME = "${jdk}"
     }
     stages {
         stage('Build') {
