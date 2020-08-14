@@ -42,6 +42,8 @@ pipeline {
 
                 pwd = echo "$Password"
                 bat 'echo ${env.usr}'
+                bat "echo $usr"
+
                 }
             }
         }
