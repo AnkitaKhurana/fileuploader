@@ -32,17 +32,16 @@ pipeline {
         // }
         stage ('Loginto Nexus '){
 //          
+               
+           
+            steps {
+                script {
                 withCredentials([usernamePassword(credentialsId: 'nexus',
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
                                        bat 'echo $Username'
 
                 bat 'echo $Password'
                 }
-           
-            steps {
-                script {
-                //    sh 'echo $u'
-                //  echo "${env.u}"
             }
         }
             
