@@ -30,17 +30,22 @@ pipeline {
                 }
             }
         }
-        stage ('Loginto Nexus '){
-              steps {
-                script {
-            withCredentials([usernamePassword(credentialsId: 'nexus',
-                     usernameVariable: 'Username', passwordVariable: 'Password')]) {
-            bat'npm login $usernameVariable $passwordVariable'
+        // stage ('Loginto Nexus '){
+        //       steps {
+        //         script {
+        //     withCredentials([usernamePassword(credentialsId: 'nexus',
+        //              usernameVariable: 'Username', passwordVariable: 'Password')]) {
+        //     bat'npm login $usernameVariable $passwordVariable'
 
-        }
-         }
-            }
+        // }
+        //  }
+        //     }
             
+        // }
+          stage('Publish') {
+            steps {
+                bat 'npm publish'
+            }
         }
        
     }     
