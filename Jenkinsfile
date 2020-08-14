@@ -30,12 +30,12 @@ pipeline {
                 }
             }
         }
-        stage ('Artifactory upload'){
+        stage ('Loginto Nexus '){
               steps {
                 script {
             withCredentials([usernamePassword(credentialsId: 'nexus',
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
-               bat 'npm publish'
+               bat 'npm login'
         }
          }
             }
