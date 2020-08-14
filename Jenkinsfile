@@ -31,10 +31,14 @@ pipeline {
             }
         }
         stage ('Artifactory upload'){
+              steps {
+                script {
             withCredentials([usernamePassword(credentialsId: 'sonar',
                      usernameVariable: 'admin', passwordVariable: 'ankita')]) {
                bat 'npm publish'
         }
+         }
+            }
             
         }
        
