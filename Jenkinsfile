@@ -40,7 +40,7 @@ pipeline {
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
                                        bat 'echo $Username'
 
-                bat 'echo $Password'
+                echo "$Password"
                 }
             }
         }
