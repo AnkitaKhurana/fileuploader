@@ -33,8 +33,8 @@ pipeline {
         stage ('Artifactory upload'){
               steps {
                 script {
-            withCredentials([usernamePassword(credentialsId: 'sonar',
-                     usernameVariable: 'admin', passwordVariable: 'ankita')]) {
+            withCredentials([usernamePassword(credentialsId: 'nexus',
+                     usernameVariable: 'Username', passwordVariable: 'Password')]) {
                bat 'npm publish'
         }
          }
