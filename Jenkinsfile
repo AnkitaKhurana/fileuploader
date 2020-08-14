@@ -46,8 +46,8 @@ pipeline {
            }
             steps {
                 script {
-                   sh 'echo $u'
-                 echo "${env.u}"
+                //    sh 'echo $u'
+                //  echo "${env.u}"
             }
         }
             
