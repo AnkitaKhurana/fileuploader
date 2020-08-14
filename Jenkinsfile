@@ -34,13 +34,13 @@ pipeline {
            environment {
                 withCredentials([usernamePassword(credentialsId: 'nexus',
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
-                        username = '$Username'
+                        u = '$Username'
                 }
            }
             steps {
                 script {
-                   sh 'echo $username'
-                 echo "${env.username}"
+                   sh 'echo $u'
+                 echo "${env.u}"
             }
         }
             
