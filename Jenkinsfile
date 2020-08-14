@@ -14,33 +14,35 @@ pipeline {
                 bat 'npm test'
             }
         }
-        stage ('Sonar Quality'){
+        // stage ('Sonar Quality'){
+        //    environment {
+        //         jdk = tool name: 'JAVA_HOME'
+        //          JAVA_HOME = "${jdk}"
+        //          scannerHome = tool 'SonarQube Scanner'
+        //    }
+        //     steps {
+        //         withSonarQubeEnv('SonarQube') {
+        //         bat "${scannerHome}/bin/sonar-scanner"
+        //         }
+        //         timeout(time: 10, unit: 'MINUTES') 
+        //         {
+        //             waitForQualityGate abortPipeline: true
+        //         }
+        //     }
+        // }
+        stage ('Loginto Nexus '){
            environment {
-                jdk = tool name: 'JAVA_HOME'
-                 JAVA_HOME = "${jdk}"
-                 scannerHome = tool 'SonarQube Scanner'
+                withCredentials([usernamePassword(credentialsId: 'nexus',
+                     usernameVariable: 'Username', passwordVariable: 'Password')]) {
+                        Username = '$Username'
+                }
            }
             steps {
-                withSonarQubeEnv('SonarQube') {
-                bat "${scannerHome}/bin/sonar-scanner"
-                }
-                timeout(time: 10, unit: 'MINUTES') 
-                {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
-        stage ('Loginto Nexus '){
-              steps {
                 script {
-            withCredentials([usernamePassword(credentialsId: 'nexus',
-                     usernameVariable: 'Username', passwordVariable: 'Password')]) {
-            // bat'npm login $usernameVariable $passwordVariable'
-    bat 'echo ${env.Username}'
-
-        }
-         }
+                   sh 'echo $Username'
+                 echo "${env.Username}"
             }
+        }
             
         }
         // stage('Publish') {
