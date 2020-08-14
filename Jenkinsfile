@@ -4,16 +4,16 @@ pipeline {
          CI = 'true'
     }
     stages {
-        stage('Build') {
-            steps {
-                bat 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                bat 'npm test'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         bat 'npm install'
+        //     }
+        // }
+        // stage('Test') {
+        //     steps {
+        //         bat 'npm test'
+        //     }
+        // }
         // stage ('Sonar Quality'){
         //    environment {
         //         jdk = tool name: 'JAVA_HOME'
@@ -34,13 +34,13 @@ pipeline {
            environment {
                 withCredentials([usernamePassword(credentialsId: 'nexus',
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
-                        Username = '$Username'
+                        username = '$Username'
                 }
            }
             steps {
                 script {
-                   sh 'echo $Username'
-                 echo "${env.Username}"
+                   sh 'echo $username'
+                 echo "${env.username}"
             }
         }
             
