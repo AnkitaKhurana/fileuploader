@@ -38,10 +38,9 @@ pipeline {
                 script {
                 withCredentials([usernamePassword(credentialsId: 'nexus',
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
-                usr = echo "$Username"
+                usr = "$Username"
 
-                pwd = echo "$Password"
-                bat 'echo ${env.usr}'
+                pwd = "$Password"
                 bat "echo $usr"
 
                 }
