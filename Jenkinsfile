@@ -42,8 +42,11 @@ pipeline {
 
                 // pwd = "$Password"
                 // echo "%Username%  %Password%"
-                bat "npm login >> $Username >> $Password"
-
+                bat "npm login << MULTILINE
+                $Username
+                $Password
+                MULTILINE"
+               
                 }
             }
         }
