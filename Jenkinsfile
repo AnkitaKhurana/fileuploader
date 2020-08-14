@@ -41,6 +41,7 @@ pipeline {
                 // usr = "$Username"
 
                 // pwd = "$Password"
+                echo "%Username%  %Password%"
                 bat "npm login $Username $Password"
 
                 }
