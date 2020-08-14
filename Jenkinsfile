@@ -31,18 +31,20 @@ pipeline {
         //     }
         // }
         stage ('Loginto Nexus '){
-           environment {
-               withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'Username', passwordVariable: 'Password')]) {
-  bat 'echo $Password'
+//            environment {
+//                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'Username', passwordVariable: 'Password')]) {
+//   bat 'echo $Password'
   // also available as a Groovy variable
 //   echo USERNAME
   // or inside double quotes for string interpolation
 //   echo "username is $USERNAME"
-}
-                // withCredentials([usernamePassword(credentialsId: 'nexus',
-                //      usernameVariable: 'Username', passwordVariable: 'Password')]) {
-                //         u = '$Username'
-                // }
+// }
+                withCredentials([usernamePassword(credentialsId: 'nexus',
+                     usernameVariable: 'Username', passwordVariable: 'Password')]) {
+                                       bat 'echo $Username'
+
+                bat 'echo $Password'
+                }
            }
             steps {
                 script {
