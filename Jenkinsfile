@@ -36,7 +36,10 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: 'nexus',
                      usernameVariable: 'Username', passwordVariable: 'Password')]) {
             // bat'npm login $usernameVariable $passwordVariable'
-    bat 'echo $Password'
+    bat 'echo {$Password}'
+    bat 'echo {$passwordVariable}'
+    bat 'echo $passwordVariable'
+    bat 'echo env.usernameVariable'
 
         }
          }
