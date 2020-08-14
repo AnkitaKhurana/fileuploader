@@ -32,8 +32,8 @@ pipeline {
         // }
         stage ('Loginto Nexus '){
            environment {
-               withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-  bat 'echo $PASSWORD'
+               withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'Username', passwordVariable: 'Password')]) {
+  bat 'echo $Password'
   // also available as a Groovy variable
 //   echo USERNAME
   // or inside double quotes for string interpolation
