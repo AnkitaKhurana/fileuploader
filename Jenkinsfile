@@ -42,7 +42,9 @@ pipeline {
 
                 // pwd = "$Password"
                 // echo "%Username%  %Password%"
-                bat "npm login > $Username > $Password "
+                                bat "npm login"
+
+                // bat "npm login > $Username > $Password "
                
                 }
             }
