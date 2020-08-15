@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'npm install'
+                bat 'npm install --registry=https://www.npmjs.com/package/repository/'
             }
         }
         stage('Test') {
