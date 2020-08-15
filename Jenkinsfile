@@ -37,7 +37,7 @@ pipeline {
         }
        stage('Create Docker image') {
             steps {
-                bat 'docker build  -t ankitakhurana25/fileUploader .'
+                bat 'docker build  -t ankitakhurana25/fileuploader .'
             }
         }
     }     
