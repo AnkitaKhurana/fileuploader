@@ -57,7 +57,7 @@ pipeline {
         stage('Applicaion run') {
           steps{
                 script {
-                                   bat 'docker run -p 3000:3000 '+registry + ":$BUILD_NUMBER"
+                                   bat 'docker run -p 3000:3000 '+registry + ":$BUILD_NUMBER -d"
  
                 //    dockerImage.withRun {c ->
                 //         // bat "docker logs ${c.id}"
