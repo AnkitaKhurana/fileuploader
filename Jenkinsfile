@@ -40,5 +40,10 @@ pipeline {
                 bat 'docker build  -t ankitakhurana25/fileuploader .'
             }
         }
+        stage('Push to docker registry') {
+            steps {
+                bat 'docker push ankitakhurana25/fileuploader:latest'
+            }
+        }
     }     
 }
