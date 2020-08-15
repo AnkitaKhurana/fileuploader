@@ -58,8 +58,8 @@ pipeline {
           steps{
                 script {
                    dockerImage.withRun {c ->
-                        bat "docker logs ${c.id}"
-                        bat "echo ${c.id} running"
+                        // bat "docker logs ${c.id}"
+                        // bat "echo ${c.id} running"
                    }
                 }
             }
