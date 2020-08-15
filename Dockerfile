@@ -4,7 +4,7 @@ COPY . /src
 
 WORKDIR /src
 
-RUN npm install --registry=https://www.npmjs.com/package/repository/ --production
+RUN npm install --registry=https://www.npmjs.com/package/ --production
 
 EXPOSE 3000
 
