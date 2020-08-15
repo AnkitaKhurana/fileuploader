@@ -1,6 +1,9 @@
 pipeline {
      agent any
     environment {
+        registry = "ankitakhurana25/fileuploader"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
          CI = 'true'
     }
     stages {
@@ -35,15 +38,31 @@ pipeline {
                 bat 'npm publish'
             }
         }
-       stage('Create Docker image') {
-            steps {
-                bat 'docker build  -t ankitakhurana25/fileuploader .'
-            }
+         stage('Building image') {
+            steps{
+                script {
+                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+         script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
         }
-        stage('Push to docker registry') {
-            steps {
-                bat 'docker push ankitakhurana25/fileuploader:latest'
-            }
-        }
+      }
+    }
+    //    stage('Create Docker image') {
+    //         steps {
+    //             bat 'docker build  -t ankitakhurana25/fileuploader .'
+    //         }
+    //     }
+    //     stage('Push to docker registry') {
+    //         steps {
+    //             bat 'docker push ankitakhurana25/fileuploader:latest'
+    //         }
+    //     }
     }     
 }
