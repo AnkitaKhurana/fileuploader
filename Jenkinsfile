@@ -37,7 +37,7 @@ pipeline {
         }
        stage('Create Docker image') {
             steps {
-                bat 'docker version'
+                bat 'docker build .'
             }
         }
     }     
