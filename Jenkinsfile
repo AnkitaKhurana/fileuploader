@@ -35,6 +35,10 @@ pipeline {
                 bat 'npm publish'
             }
         }
-       
+       stage('Create Docker image') {
+            steps {
+                bat 'docker version'
+            }
+        }
     }     
 }
